@@ -1,4 +1,9 @@
-Push existed file
+-> clone git
+
+git init
+git clone URL
+
+-> Push existed file
 
 git init
 git add .
