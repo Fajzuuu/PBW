@@ -10,3 +10,6 @@ CREATE TABLE users (
 
 INSERT INTO users (id, username, password, last_login, active)
 VALUES ('U00001', 'admin', 'admin123', NOW(), 1);
+
+INSERT INTO users (id, username, password, last_login, active)
+VALUES ('U00002', 'admin', 'pemberani', NOW(), 1);

@@ -8,13 +8,14 @@
     $uname = $_POST['uname'];
     $paswd = $_POST['pwd'];
 
-    $sql = "SELECT * FROM users WHERE username = ? AND password = ? AND active = 1";
+    $sql = "SELECT * FROM users WHERE username = ? AND active = 1";
 
     $ps = $koneksi->prepare($sql);
-    $resultSet = $ps->execute([$uname,$paswd]);
+    $resultSet = $ps->execute([$uname]);
     $rs = $ps->fetchAll();
 
-    if(count($rs) > 0){
+    if(password_verify($paswd, $rs[0]['password']))
+    {
         session_start();
         $upd = $koneksi->prepare("UPDATE users SET last_login=? WHERE id=?");
         $upd->execute([date('Y-m-d H:i:s'), $rs[0]['id']]);
