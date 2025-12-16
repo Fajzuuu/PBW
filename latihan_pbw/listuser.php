@@ -1,5 +1,5 @@
 <?php
-    include "koneks.php"
+    include "koneksi.php"
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +48,7 @@
             <td><?=$i?></td>
             <td><?=$user['username']?></td>
             <td><?=$user['active'] == 1?"aktif":"tidak aktif"?></td>
-            <td>Edit | Delete</td>
+            <td>Edit | <a href="act_deleteUser.php?id" <?=$user['id']?>>Hapus</a></td>
         </tr>
     </table>
 </body>
