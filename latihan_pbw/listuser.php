@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include "koneksi.php"
 ?>
 
@@ -11,8 +12,20 @@
     <title>List user</title>
 </head>
 <body>
-    <h1>Selamat datang, <?php echo $_SESSION['username'] ?></h1>
+    <h1>Selamat datang, <?= htmlspecialchars($_SESSION['username']) ?></h1>
     <a href="logout.php">Logout</a>
+
+    <hr>
+
+    <h4>Daftar user</h4>
+    <table border=1 cellspacing=0>
+        <tr>
+            <td>No</td>
+            <td>Username</td>
+            <td>Status</td>
+            <td>Aksi</td>
+        </tr>
+
     <?php
         if(isset($_GET['page']))
         {
@@ -26,14 +39,6 @@
             echo " Dashboard";
         }
     ?>
-    <h4>Daftar user</h4>
-    <table border=1 cellspacing=0>
-        <tr>
-            <td>No</td>
-            <td>Username</td>
-            <td>Status</td>
-            <td>Aksi</td>
-        </tr>
 
         <?php
         $rs = $koneksi->query("SELECT * FROM users");
