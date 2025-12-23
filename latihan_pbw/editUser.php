@@ -1,4 +1,5 @@
 <?php
+    include "koneksi.php";
     $query = $koneksi->prepare("SELECT id,username,active FROM users WHERE id = ?");
     $query->execute([$_GET['id']]);
     $rs = $query->fetch(PDO::FETCH_ASSOC);
