@@ -17,6 +17,22 @@
 </head>
 <body>
     <h1>Selamat Datang <?php echo $_SESSION['username'] ?></h1>
-    <a href="logout.php">Logout</a>
+    <a href="logout.php">Logout |</a>
+    <a href="listuser.php"> Dashboard</a>
+    <?php
+        if(isset($_GET['page']))
+        {
+            switch($_GET['page'])
+            {
+                case 'add' : include ("addUser.php");break;
+                case 'edit' : include ("editUser.php");break;
+                default: include("listuser.php");break;
+            }
+        }
+        else
+        {
+            echo "Terjadi kesalahan";
+        }
+    ?>
 </body>
 </html>

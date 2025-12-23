@@ -3,7 +3,7 @@ CREATE DATABASE 15638_faizu;
 CREATE TABLE users (
     id CHAR(6) PRIMARY KEY,
     username VARCHAR(25) NOT NULL,
-    password VARCHAR(20) NOT NULL,
+    password VARCHAR(255) NOT NULL,
     last_login DATETIME,
     active TINYINT(1) NOT NULL DEFAULT 1
 );

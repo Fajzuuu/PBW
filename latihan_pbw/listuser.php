@@ -13,7 +13,8 @@
 </head>
 <body>
     <h1>Selamat datang, <?= htmlspecialchars($_SESSION['username']) ?></h1>
-    <a href="logout.php">Logout</a>
+    <a href="logout.php">Logout</a> |
+    <a href="home.php">Kembali</a>
 
     <hr>
 
@@ -53,7 +54,8 @@
             <td><?=$i?></td>
             <td><?=$user['username']?></td>
             <td><?=$user['active'] == 1?"aktif":"tidak aktif"?></td>
-            <td>Edit | <a href="act_deleteUser.php?id" <?=$user['id']?>>Hapus</a></td>
+            <td> <a href="home.php?page=edit&id<?=$user['id']?>">Edit</a>  | 
+                <a href="act_deleteUser.php?id" <?=$user['id']?>>Hapus</a></td>
         </tr>
     </table>
 </body>
